@@ -31,11 +31,11 @@
 				</tr>
 				<?php foreach($pages as $page) { ?>
 					<tr>
-						<td><?php echo $page['id']; ?></td>
-						<td><?php echo $page['position']; ?> </td>
-						<td><?php echo $page['visible']; ?> </td>
-						<td><?php echo $page['page_name']; ?> </td>
-						<td><a class="action" href="<?php echo url_for('/staff/pages/show.php?id=' . $page['id']); ?>">View</a></td>
+						<td><?php echo h($page['id']); ?></td>
+						<td><?php echo h($page['position']); ?> </td>
+						<td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?> </td>
+						<td><?php echo h($page['page_name']); ?> </td>
+						<td><a class="action" href="<?php echo url_for('/staff/pages/show.php?id=' . h(u($page['id']))); ?>">View</a></td>
 						<td><a class="action" href="">Edit</a></td>
 						<td><a class="action" href="">Delete</a></td>
 					</tr>
