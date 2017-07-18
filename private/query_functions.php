@@ -73,7 +73,7 @@
 
 	function delete_subject($id) {
 		global $db;
-		
+
 		$sql = "DELETE FROM subjects ";
 		$sql .= "WHERE id='" . $id . "'";
 		$sql .= "LIMIT 1";
@@ -82,7 +82,7 @@
 
 		// for DELETE statements, $result is true/false
 		if($result) {
-			redirect_to(url_for('/staff/subjects/index.php'));
+			return true;
 		} else {
 			echo mysqli_error($db);
 			db_disconnect($db);
