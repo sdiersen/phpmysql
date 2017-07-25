@@ -180,4 +180,17 @@
 			exit;
 		}
 	}
+
+	function get_num_rows_by_subject($id) {
+		global $db;
+
+		$sql  = "SELECT * FROM pages ";
+		$sql .= "WHERE subject_id = '$id'";
+
+		$subject_set = mysqli_query($db, $sql);
+		$count = mysqli_num_rows($subject_set);
+		mysqli_free_result($subject_set);
+
+		return $count;
+	}
 ?>
