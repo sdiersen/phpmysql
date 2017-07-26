@@ -22,7 +22,7 @@
 			</dl>
 			<dl>
 				<dt>Subject ID: </dt>
-				<dd><?php echo h($page['subject_id']); ?></dd>
+				<dd><?php echo get_subject_name_by_id(h($page['subject_id'])); ?></dd>
 			</dl>
 			<dl>
 				<dt>Position: </dt>
@@ -30,7 +30,7 @@
 			</dl>
 			<dl>
 				<dt>Visible: </dt>
-				<dd><?php echo h($page['visible']); ?></dd>
+				<dd><?php echo h($page['visible']) == '1' ? 'true' : 'false'; ?></dd>
 			</dl>
 			<dl>
 				<dt>Content: </dt>

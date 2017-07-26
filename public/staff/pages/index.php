@@ -30,7 +30,7 @@
 				<?php while($page = mysqli_fetch_assoc($pages_set)) { ?>
 					<tr>
 						<td><?php echo h($page['id']); ?></td>
-						<td><?php echo h($page['subject_id']); ?></td>
+						<td><?php echo get_subject_name_by_id(h($page['subject_id'])); ?></td>
 						<td><?php echo h($page['menu_name']); ?> </td>
 						<td><?php echo h($page['position']); ?> </td>
 						<td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?> </td>

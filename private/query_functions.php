@@ -26,6 +26,20 @@
 		return $subject;
 	}
 
+	function get_subject_name_by_id($id) {
+		global $db;
+
+		$sql  = "SELECT * FROM subjects ";
+		$sql .= "WHERE id='" . $id . "'"; //single quotes around injected data are used to guard against sql injection attacks
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+
+		$subject = mysqli_fetch_assoc($result);
+		mysqli_free_result($result);
+
+		return $subject['menu_name'];
+	}
+
 	function insert_subject($subject) {
 		global $db;
 
@@ -106,7 +120,7 @@
 		global $db;
 
 		$sql  = "SELECT * FROM pages ";
-		$sql .= "WHERE id='" .$id . "'";
+		$sql .= "WHERE id='" . $id . "'";
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
 
