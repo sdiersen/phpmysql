@@ -17,7 +17,13 @@
 
 		$result = update_subject($subject);
 
-		redirect_to(url_for('/staff/subjects/show.php?id=' . $id));
+		if ($result === true) {
+			redirect_to(url_for('/staff/subjects/show.php?id=' . $id));
+		} else {
+			$errors = $result;
+			var_dump($errors);
+		}
+		
 		
 		
 	} else {

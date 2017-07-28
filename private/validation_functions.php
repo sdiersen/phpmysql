@@ -79,5 +79,17 @@
 	// * uses !== to prevent position 0 from being considered false
 	// * strpos is faster than preg_match()
 	function has_string($value, $required_string) {
-		
+		return strpos($value, $required_string) !== false;
 	}
+
+	// has_valid_email_format('nobody@nowhere.com')
+	// * validate correct ofrmat for email addresses
+	// * format: [chars]@[chars].[2+ letters]
+	// * preg_match is helpful, uses a regular expression
+	// returns 1 for a match, 0 for no match
+	// http://php.net/manual/en/function.preg-match.php
+	function has_valid_email_format($value) {
+		$email_regex = '/\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\Z/i';
+		return preg_match($email_regex, $value) === 1;
+	}
+?>
